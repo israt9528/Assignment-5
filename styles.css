@@ -1,3 +1,17 @@
 .bg {
     background: linear-gradient(90.00deg, rgba(1.251827359199524, 49.64006805419922, 34.606834411621094, 1),rgba(0, 103, 71, 1) 50%,rgba(1, 50, 35, 1) 100%);
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.hind-madurai {
+  font-family: "Hind Madurai", sans-serif;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
