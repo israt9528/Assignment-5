@@ -4,6 +4,10 @@ function getValue(id) {
   return value;
 }
 
+function getElement(id) {
+  return document.getElementById(id);
+}
+
 // count feature
 const heart = document.getElementsByClassName("heart-icon");
 for (let icon of heart) {
@@ -35,5 +39,37 @@ for (let btn of call) {
     coin = coin - 20;
     const newCoin = document.getElementById("coin");
     newCoin.innerText = coin;
+
+    const info = {
+      title: serviceName,
+      number: serviceNumber,
+      date: new Date().toLocaleTimeString(),
+    };
+    callHistoryData.push(info);
+    // console.log(callHistory);
+    for (let info of callHistoryData) {
+      const callHistory = getElement("call-history");
+
+      const div = document.createElement("div");
+      div.innerHTML = `
+    <div
+            class="bg-[#fafafa] rounded-lg p-3 mt-4 flex justify-between items-center"
+          >
+            <div>
+              <h3 class=" font-medium">${info.title}</h3>
+              <p class="text-[#5c5c5c]">${info.number}</p>
+            </div>
+            <div class="text-sm">${info.date}</div>
+          </div>
+    `;
+      callHistory.appendChild(div);
+    }
   });
 }
+
+let callHistoryData = [];
+
+// clear button features
+document.getElementById("clear-btn").addEventListener("click", function () {
+  getElement("call-history").style.display = "none";
+});
