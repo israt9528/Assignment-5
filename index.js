@@ -53,10 +53,10 @@ for (let btn of call) {
       const div = document.createElement("div");
       div.innerHTML = `
     <div
-            class="bg-[#fafafa] rounded-lg p-3 mt-4 flex justify-between items-center"
+            class="bg-[#fafafa] rounded-lg p-3 mb-3 flex items-center justify-between"
           >
             <div>
-              <h3 class=" font-medium">${info.title}</h3>
+              <h3 class=" font-medium text-lg">${info.title}</h3>
               <p class="text-[#5c5c5c]">${info.number}</p>
             </div>
             <div class="text-sm">${info.date}</div>
@@ -73,3 +73,21 @@ let callHistoryData = [];
 document.getElementById("clear-btn").addEventListener("click", function () {
   getElement("call-history").style.display = "none";
 });
+
+// copy button features
+const copy = document.getElementsByClassName("copy-btn");
+for (let btn of copy) {
+  // make alert for click
+  btn.addEventListener("click", function (e) {
+    let serviceNumber =
+      e.target.parentNode.parentNode.querySelector(".number").innerText;
+    alert(`emergency-service.netlify.app says
+The number is copied: ${serviceNumber}`);
+    // increase copy count
+    const copyCount = getValue("copy") + 1;
+    const newCopyCount = getElement("copy");
+    newCopyCount.innerText = copyCount;
+    // copy the number to the clipboard
+    navigator.clipboard.writeText(serviceNumber);
+  });
+}
