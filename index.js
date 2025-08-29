@@ -9,6 +9,8 @@ function getElement(id) {
   return document.getElementById(id);
 }
 
+let callHistoryData = [];
+
 // count feature
 
 const heart = document.getElementsByClassName("heart-icon");
@@ -60,7 +62,7 @@ for (let btn of call) {
             class="bg-[#fafafa] rounded-lg p-3 mb-3 flex items-center justify-between"
           >
             <div>
-              <h3 class=" font-medium text-lg">${info.title}</h3>
+              <h3 class=" font-semibold">${info.title}</h3>
               <p class="text-[#5c5c5c]">${info.number}</p>
             </div>
             <div class="text-sm">${info.date}</div>
@@ -70,8 +72,6 @@ for (let btn of call) {
     }
   });
 }
-
-let callHistoryData = [];
 
 // clear button features
 
