@@ -4,11 +4,13 @@ function getValue(id) {
   return value;
 }
 
+// function to get element
 function getElement(id) {
   return document.getElementById(id);
 }
 
 // count feature
+
 const heart = document.getElementsByClassName("heart-icon");
 for (let icon of heart) {
   icon.addEventListener("click", function () {
@@ -18,6 +20,7 @@ for (let icon of heart) {
   });
 }
 
+// call button features
 const call = document.getElementsByClassName("call-btn");
 for (let btn of call) {
   btn.addEventListener("click", function (e) {
@@ -39,17 +42,18 @@ for (let btn of call) {
     coin = coin - 20;
     const newCoin = document.getElementById("coin");
     newCoin.innerText = coin;
-
+    // add data in the call history section
     const info = {
       title: serviceName,
       number: serviceNumber,
       date: new Date().toLocaleTimeString(),
     };
     callHistoryData.push(info);
-    // console.log(callHistory);
-    for (let info of callHistoryData) {
-      const callHistory = getElement("call-history");
 
+    const callHistory = getElement("call-history");
+    callHistory.innerHTML = "";
+
+    for (let info of callHistoryData) {
       const div = document.createElement("div");
       div.innerHTML = `
     <div
@@ -70,11 +74,13 @@ for (let btn of call) {
 let callHistoryData = [];
 
 // clear button features
+
 document.getElementById("clear-btn").addEventListener("click", function () {
   getElement("call-history").style.display = "none";
 });
 
 // copy button features
+
 const copy = document.getElementsByClassName("copy-btn");
 for (let btn of copy) {
   // make alert for click
